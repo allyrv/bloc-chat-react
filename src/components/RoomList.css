@@ -1,22 +1,85 @@
 .roomlist {
   float: left;
-  width: 400px;
-  height: 100vh;
-  background-color: #dee0e2;
+  width: 40%;
+  height: 100%;
+  background-color: #2c3e50;
 }
 
 .sidebar-list {
-  color: #95979b;
-  padding-top: 20px;
+  background-color: #2c3e50;
+  color: ##ECF0F1;
+  font-weight: 400;
+  font-size: 16px;
+  width: 50%;
+  text-align: left;
+  padding-left: 10%;
+  float: left;
+  display: inline-block;
+  height: 100vh;
 }
 
 .rooms {
   list-style: none;
-  font-size: 1.5em;
+  font-size: 20px;
   padding-bottom: 20px;
+  color: #ECF0F1;
 }
 
 .title {
-  font-size: 2.5em;
-  padding-left: 25px;
+  font-weight: 450;
+  font-size: 48px;
+  color: #ECF0F1;
+  float: left;
+  margin: 10%;
 }
+
+.new-room {
+  background-color: white;
+  color: #F14D7B;
+  border: none;
+  border-radius: 6px;
+  padding: 2% 10% 2% 10%;
+  font-size: 16px;
+  font-weight: 600;
+  float: left;
+  margin-left: 10%;
+  margin-right: 10%;
+}
+
+.displayed {
+  color: #ECF0F1;
+  margin-top: 30%;
+  padding-right: 10px;
+}
+
+.text-field-description {
+  color: #ECF0F1;
+  font-size: 18px;
+  font-weight: 300;
+  margin-bottom: 5px;
+}
+
+.create-room, .cancel {
+  color: #F14D7B;
+  border-radius: 3px;
+  padding: 2px;
+  margin: 2px;
+  font-weight: 400;
+}
+
+input[type=text] {
+  border-radius: 3px;  
+  border: 2px;
+  padding: 4px 8px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  font-size: 12px;
+}
+
+.hidden {
+  display: none;
+}
+
+
+
+

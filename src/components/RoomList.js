@@ -6,10 +6,13 @@ class RoomList extends Component {
     super(props)
 
   this.state = {
-    rooms: []
+    rooms: [],
+    handleForm: false,
+    newRoomName: ''
   };
 
   this.roomsRef = this.props.firebase.database().ref('rooms');
+  this.createRoom = this.createRoom.bind(this);
   }
 
   componentDidMount() {
@@ -20,16 +23,42 @@ class RoomList extends Component {
     });
   }
 
+  formToggle() {
+      if (this.state.handleForm === true)
+        this.setState({handleForm: false});
+      else
+        this.setState({handleForm: true});
+  }
+
+  createRoom(e) {
+    e.preventDefault();
+    const newRoom = e.target.elements.newRoomName.value;
+    this.roomsRef.push({name: newRoom});
+    this.setState({handleForm: false});
+  }
+
+
   render() {
     return (
       <section className='roomlist'>
         <h1 className='title'>Bloc Chat</h1>
+        <button className='new-room' onClick={this.formToggle.bind(this)}>New room</button>
         <ul className='sidebar-list'>
         {
           this.state.rooms.map((room, index) =>
             <li className='rooms' key={index}>{room.name}</li>
         )}
         </ul>
+        <form className={this.state.handleForm ? 'displayed' : 'hidden'} onSubmit={this.createRoom}>
+          <h3 className='text-field-description'>New Room Name</h3>
+          <input
+            type='text'
+            id='new-room-name'
+            name='newRoomName'
+          />
+          <button className='create-room' type='submit'>Create room</button>
+          <button className='cancel' onClick={this.formtoggle}>Cancel</button>
+        </form>
       </section>
     );
   }
